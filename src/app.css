@@ -1,0 +1,221 @@
+/* -----------------------------------
+   Base Reset & Global Styles
+----------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #7b2ff7 0%, #f107a3 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* -----------------------------------
+   Layout Containers
+----------------------------------- */
+.app-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* -----------------------------------
+   Heading
+----------------------------------- */
+.chat-heading {
+  color: white;
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 500px) {
+  .chat-heading {
+    font-size: 1.5rem;
+  }
+}
+
+/* -----------------------------------
+   Chat Box
+----------------------------------- */
+.chat-box {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  height: calc(100vh - 10rem);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+/* -----------------------------------
+   Message Area
+----------------------------------- */
+.bubble-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-right: 0.5rem;
+}
+
+/* -----------------------------------
+   Chat Bubbles
+----------------------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.bubble {
+  position: relative;
+  max-width: 75%;
+  padding: 0.75rem 1rem;
+  border-radius: 16px;
+  word-wrap: break-word;
+  animation: fadeIn 0.25s ease-out both;
+}
+
+.bubble.user {
+  align-self: flex-end;
+  background: #e0e0e0;
+  border-bottom-right-radius: 4px;
+}
+
+.bubble.assistant {
+  align-self: flex-start;
+  background: #d1c4e9;
+  border-bottom-left-radius: 4px;
+}
+
+/* Bubble Tails */
+.bubble.user::after,
+.bubble.assistant::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 15px;
+}
+
+.bubble.user::after {
+  right: -8px;
+  border-left: 8px solid #e0e0e0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+.bubble.assistant::after {
+  left: -8px;
+  border-right: 8px solid #d1c4e9;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+/* Message Content */
+.bubble-text {
+  white-space: pre-wrap;
+}
+
+.bubble-time {
+  font-size: 0.75rem;
+  color: #555;
+  margin-top: 0.35rem;
+  text-align: right;
+}
+
+/* -----------------------------------
+   Input Form
+----------------------------------- */
+.input-form {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.input-form input {
+  flex-grow: 1;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.input-form button {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #7b2ff7;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.input-form button:hover {
+  background: #651edc;
+}
+
+/* -----------------------------------
+   Exit Message
+----------------------------------- */
+.exited {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+/* -----------------------------------
+   Audio Visualizer
+----------------------------------- */
+.visualizer-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 1rem;
+}
+
+.audio-visualizer {
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(to right, #1e133d, #221b44);
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(123, 47, 247, 0.3);
+}
+
+.visualizer-label {
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  font-size: 0.9rem;
+  color: #c5b6ff;
+  font-weight: bold;
+  text-shadow: 0 0 4px rgba(123, 47, 247, 0.5);
+  pointer-events: none;
+}
