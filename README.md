@@ -6,6 +6,10 @@ Built initially as a personal project (for a bit of fun).
 
 Offers a great platform for extending with RAG for specific use with IP or other privacy sensitive data.
 
+<p align="center">
+  <img src="./public/GithubScreenshot.png" alt="Screenshot of the chat app" width="600"/>
+</p>
+
 ---
 
 ## ✨ Features
