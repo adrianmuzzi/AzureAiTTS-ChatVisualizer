@@ -51,14 +51,16 @@ _Auth tooling for development purposes only. Recommend Managed Identities via Mi
 azureai-chatvisualizer/
 ├── public/                # Static assets (favicon, etc.)
 ├── src/
-│   └── App.jsx            # Main React component
-│   └── App.css            # Glowing waveform styling
+│   └── app.jsx            # Main React component
+│   └── app.css            # Styling
+│   └── main.jsx           # Front-end entry point
 ├── backend/
 │   └── index.js           # Express server for AI + TTS proxy
+│   └── package.json       # Backend specific package management
 ├── .env                   # Azure keys (ignored by git)
 ├── .gitignore
 ├── package.json
-└── vite.config.js
+└── package-lock.json
 ```
 
 ## 📦 Getting Started
